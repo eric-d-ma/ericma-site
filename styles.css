@@ -1,0 +1,228 @@
+/* ── Reset ─────────────────────────────────────── */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Homepage ──────────────────────────────────── */
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body.home {
+  background: #0c0905;
+  overflow: hidden;
+}
+
+.video-wrapper {
+  position: fixed;
+  inset: 0;
+}
+
+#bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* SVG overlays */
+
+.hotspot-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  pointer-events: none;
+}
+
+.hotspot-group {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.hotspot-group polygon {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.hotspot-group text {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  font-family: 'Lora', serif;
+  font-size: 28px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+.hotspot-group:hover polygon,
+.hotspot-group:hover text {
+  opacity: 1;
+}
+
+/* Mute button */
+
+#mute-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.25s ease;
+  padding: 6px;
+  z-index: 100;
+  line-height: 0;
+}
+
+#mute-btn:hover {
+  opacity: 1;
+}
+
+#mute-btn .icon-muted {
+  display: none;
+}
+
+#mute-btn.muted .icon-sound {
+  display: none;
+}
+
+#mute-btn.muted .icon-muted {
+  display: block;
+}
+
+/* ── Subpages ──────────────────────────────────── */
+
+body.subpage {
+  color: #1c1410;
+  font-family: 'Lora', serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.page-wrapper {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 64px 32px 120px;
+}
+
+/* About — buffalo background, text upper half, red */
+body.about-page {
+  background-image: url(buffalo.jpg);
+}
+
+body.about-page .page-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 16px 40px;
+  max-height: 33vh;
+}
+
+body.about-page .back-link,
+body.about-page .page-title,
+body.about-page .page-body p {
+  color: #cc0000;
+}
+
+/* Projects — building background, text left third + top half, burnt orange */
+body.projects-page {
+  background-image: url(Building.JPG);
+}
+
+body.projects-page .page-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 33vw;
+  margin: 0;
+  padding: 64px 32px;
+  max-height: 50vh;
+}
+
+body.projects-page .back-link,
+body.projects-page .page-title,
+body.projects-page .page-body p {
+  color: #cc5500;
+}
+
+/* Contact — grass background, text centered, royal blue */
+body.contact-page {
+  background-image: url(grass.jpg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.contact-page .page-wrapper {
+  padding: 0;
+  text-align: center;
+}
+
+body.contact-page .back-link,
+body.contact-page .page-title,
+body.contact-page .page-body p,
+body.contact-page .page-body a {
+  color: #ffd700;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 13px;
+  color: #9a8878;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 72px;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #1c1410;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 40px;
+}
+
+.page-body p {
+  font-size: 18px;
+  line-height: 1.85;
+  color: #3a2e24;
+  margin-bottom: 28px;
+}
+
+.page-body p:last-child {
+  margin-bottom: 0;
+}
+
+.page-body a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page-body a:hover {
+  color: #6a5040;
+}
