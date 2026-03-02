@@ -151,13 +151,13 @@
     // ── Autoplay with sound (falls back to muted if browser blocks) ───────────
     const muteBtn = document.getElementById('mute-btn');
 
-    video.muted = true;
+    video.muted = false;
+    video.volume = 0.75;
     video.addEventListener('canplay', () => {
-      video.play().then(() => {
-        video.muted = false;
-        video.volume = 0.75;
-      }).catch(() => {
+      video.play().catch(() => {
+        video.muted = true;
         muteBtn.classList.add('muted');
+        video.play();
       });
     }, { once: true });
 
